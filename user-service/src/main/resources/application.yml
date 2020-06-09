@@ -1,0 +1,25 @@
+server:
+  port: 9090
+  ## default connection pool
+spring:
+  application:
+    name: user-service
+    cloud:
+      config:
+        uri: http://localhost:8888
+        fail-fast: true
+        password: 1234
+        username: user
+  datasource:
+    hikari:
+      connectionTimeout: 20000
+      maximumPoolSize: 5
+  ## PostgreSQL
+    url: jdbc:postgresql://localhost:5432/userdb
+    username: postgres
+    password: root
+
+  #drop n create table again, good for testing, comment this in production
+  jpa:
+    hibernate:
+      ddl-auto: none
